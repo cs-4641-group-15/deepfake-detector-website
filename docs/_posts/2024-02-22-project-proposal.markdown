@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Project Proposal"
-date:   2024-02-22 22:35:53 -0500
+date:   2024-02-23 9:35:53 -0500
 categories: update
 ---
 
@@ -21,7 +21,7 @@ Our [dataset](https://www.kaggle.com/c/deepfake-detection-challenge/data) comes 
 
 ## Problem Definition
 
-Deepfake technology has led to loss of trust in media content, distress to targeted individuals, and greater spread of misinformation. With increasing accessibility to generative AI tools, such as DALL-E, there is an urgent need to develop effective deepfake detection methods to combat these detrimental effects.
+Deepfake technology has led to loss of trust in media content, distress to targeted individuals, and greater spread of misinformation. With increasing accessibility to generative tools, such as [Deepfacelab](https://github.com/iperov/DeepFaceLab), there is an urgent need to develop effective deepfake detection methods to combat these detrimental effects.
 
 ## Methods
 
