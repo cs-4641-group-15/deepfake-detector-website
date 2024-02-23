@@ -28,8 +28,8 @@ Deepfake technology has led to loss of trust in media content, distress to targe
 ### Preprocessing Methods
 
 1. **Frame Extraction:** Use OpenCV’s [VideoCapture](https://docs.opencv.org/4.x/d8/dfe/classcv_1_1VideoCapture.html) tool to extract frames from videos.
-2. [**Blob Detection:**](https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_blob.html) Detecting regions in images that differ in properties.
-3. [**SIFT:**](https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_sift.html) Feature extraction invariant to affine transformations.
+2. [**Blob Detection:**](https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_blob.html) Detect regions in images that differ in properties.
+3. **Feature Extraction:** Use [SIFT](https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_sift.html) to extract features invariant to affine transformations.
 
 ### Machine Learning Models
 
@@ -39,9 +39,9 @@ Deepfake technology has led to loss of trust in media content, distress to targe
 
 ## Potential Results and Discussion
 
-We aim to exceed the 97% accuracy benchmark set by Nguyen et al. [1] and achieve a high F1 Score to effectively manage class imbalances in our dataset. Additionally, we aim for a strong AUC-ROC to ensure precise discrimination between real and deepfaked content.
+We expect to achieve (and hope to surpass) the 97% accuracy benchmark set by Nguyen et al. [1] by fine-tuning our model. We will prioritize feature engineering to optimize precision and recall for a high F1 Score. Additionally, our focus on accurately classifying videos aims to achieve a strong AUC-ROC performance.
 
-Our goals include refining neural networks to boost detection accuracy and robustness in diverse scenarios, from low-quality to highly convincing deepfakes. We aim to validate our model's effectiveness on current deepfake technologies and contribute to the discourse on mitigating deepfake-related crimes, informed by Hailtik and Afifah's insights [3].
+Our goals include refining neural networks to boost detection accuracy and robustness in diverse scenarios, from low-quality to highly convincing deepfakes. We will validate our model's effectiveness on current deepfake technologies and contribute to the discourse on mitigating deepfake-related crimes, informed by Hailtik and Afifah's insights [3].
 
 ## References
 
@@ -59,8 +59,8 @@ Our goals include refining neural networks to boost detection accuracy and robus
 
 | Team Member                      | Responsibilities                                     |
 |----------------------------------|------------------------------------------------------|
-| Vibha Thirunellayi Gopalakrishnan| Methods, Problem Definition, Results, Slides         |
-| Junseob Lee                      | Literature review, Potential results and discussion, references, presentation |
-| Michelle Namgoong                | Slides, Shortened Proposal, GitHub Pages, Repo       |
-| Yeonsoo Chang                    | Literature review, references, presentation          |
-| Vincent Horvath                  | Gantt Chart, Dataset and Description, Preprocessing Methods, GitHub Pages Setup and Proposal |
+| Vibha Thirunellayi Gopalakrishnan| Problem Definition, Methods, Results, Slide Deck     |
+| Junseob Lee                      | Literature Review, Potential Results and Discussion, References |
+| Michelle Namgoong                | Final Proposal Edits, GitHub Setup, Slide Deck, Video Presentation |
+| Yeonsoo Chang                    | Literature Review, References, Slide Deck            |
+| Vincent Horvath                  | Dataset and Description, Preprocessing Methods, Gantt Chart, GitHub Pages Setup and Proposal |
