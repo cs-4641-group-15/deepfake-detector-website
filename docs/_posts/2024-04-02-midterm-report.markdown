@@ -33,7 +33,7 @@ We labeled these frames accordingly and merged them into a comprehensive dataset
 
 ### Machine Learning Model
 
-We implemented a CNN model that consists of a series of convolutional and max-pooling layers, designed to identify and leverage spatial features in the dataset. Following these, dense layers were added to carry out the classification process.The model uses the Adam optimizer for refining its parameters, with binary cross-entropy as the loss function, chosen for its effectiveness in binary classification tasks.
+We implemented a CNN model that consists of a series of convolutional and max-pooling layers, designed to identify and leverage spatial features in the dataset. Following these, dense layers were added to carry out the classification process. The model uses the Adam optimizer for refining its parameters, with binary cross-entropy as the loss function, chosen for its effectiveness in binary classification tasks.
 
 The training process spanned 20 epochs, during which we closely monitored validation accuracy and loss to ensure the model was generalizing effectively and not overfitting.
 
@@ -68,7 +68,7 @@ The tables below summarize the model’s performance across various metrics duri
 |---------------------|-----------------------|
 | Validation Accuracy | 0.5329670310020447    |
 | F1 Score            | 0.5893719806763285    |
-| ROC AUC Score       | 0.5257531584062196    |
+| AUC-ROC Score       | 0.5257531584062196    |
 
 Notably, we see a constant decrease in the training loss, implying that the model was successfully learning from the dataset. However, the discrepancy between training accuracy and validation accuracy, as well as fluctuating validation loss, indicate possible concerns with the model’s ability to generalize to new data. By the last epoch, the training loss was 0.0157 with a training accuracy of 99.96%, while the validation loss was 2.5089 with a validation accuracy of 53.3%. These results indicate that the model can predict on both training and validation data, but it is heavily overfitted. Despite attempts to mitigate this through the addition of a dropout layer for regularization, further strategies for reducing overfitting are being considered for future improvements, such as artificially adding images to the training set via rotating, flipping, and cropping existing images.
 
@@ -83,14 +83,13 @@ The confusion matrix provides additional insights:
 
 From this, we can infer the model’s accuracy is approximately 53.2%, indicating that it correctly predicts the class of the video (real or fake) about 53.2% of the time. The precision for fake videos is approximately 42.9%, meaning less than half of the model’s predicted ‘fake’ videos are actually fake, and the recall for fake videos is approximately 49.3%, meaning the model correctly identifies nearly half of all the actual fake videos. 
 
-Moreover, the F1 Score is 0.589, which suggests that the model has a reasonable balance between correctly identifying fake videos and avoiding misclassifications. The ROC curve illustrates the model’s performance:
+Moreover, the F1 Score is 0.589, which suggests that the model has a reasonable balance between correctly identifying fake videos and avoiding misclassifications.
 
 ![ROC Curve](/deepfake-detector-website/images/roc.png)
 
 The area under the ROC curve (AUC-ROC) is 0.526. For reference, a score of 0.5 indicates random guessing, while a score closer to 1 indicates better performance. Here, the score suggests that the model's ability to discriminate between fake and real videos is slightly better than random guessing, leaving much room for improvement.
 
 In conclusion, our findings underscore the importance of refining both the learning process and the structure of our model to better accommodate the complexities involved in detecting deepfake videos. Our next steps will include exploring more advanced data augmentation techniques, introducing regularization mechanisms, and optimizing model complexity to achieve a more balanced and generalizable performance (preventing overfitting).
-
 
 ## References
 
@@ -108,7 +107,7 @@ In conclusion, our findings underscore the importance of refining both the learn
 
 | Team Member                      | Responsibilities                                         |
 |----------------------------------|----------------------------------------------------------|
-| Vibha Thirunellayi Gopalakrishnan| Evaluation Metrics, Visualizations                       |
+| Vibha Thirunellayi Gopalakrishnan| Writing Midterm Report, Evaluation Metrics, Visualizations |
 | Junseob Lee                      | Writing Midterm Report, Methods                          |
 | Michelle Namgoong                | CNN Model Development, Website Deployment                |
 | Yeonsoo Chang                    | Writing Midterm Report, Results, Discussion              |
