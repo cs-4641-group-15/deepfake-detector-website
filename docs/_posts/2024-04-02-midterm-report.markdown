@@ -1,10 +1,9 @@
 ---
 layout: post
-title:  "Midterm Report (DRAFT)"
+title:  "Midterm Report"
 date:   2024-04-01 00:35:53 -0500
 categories: update
 ---
-
 
 ## Introduction/Background
 
@@ -28,34 +27,69 @@ Deepfake technology has led to loss of trust in media content, distress to targe
 
 ### Data Preprocessing
 
-Videos in our dataset are initially classified as 'real' or 'fake' based on metadata. We capture 24 frames from each video and convert them to grayscale before scaling and padding to produce uniform 400x400 pixel images. This method is carried out using OpenCV, which ensures that the dataset has uniformly formatted images for CNN input.
+Our initial step in data preprocessing involved frame extraction so that we could analyze the videos as sequences of individual images. Each video was initially categorized as 'real' or 'fake' based on the given metadata. We selected 24 frames per video, converting them into grayscale to maintain consistency. To standardize the frames for our machine learning model, they were resized and padded to a uniform size of 400x400 pixels using OpenCV, ensuring consistent image formatting across our dataset.
 
-Extracted frames are labeled accordingly and merged into a comprehensive dataset, which is then split into training and testing subsets. We average the frames of each video to simplify model input and normalize pixel values to [0, 1] for improved model performance. The data is structured into batches using TensorFlow's `tf.data.Dataset` for efficient training.
+We labeled these frames accordingly and merged them into a comprehensive dataset, which was subsequently divided into training and testing subsets. To refine the input for our model, we calculated the difference between the first two frames of each video and normalized the pixel values to [0, 1]. Additionally, we used TensorFlow's `tf.data.Dataset` tool to structure the data into batches for efficient training.
 
 ### Machine Learning Model
 
-Our model integrates a sequence of convolutional and max-pooling layers, thoroughly designed to detect and harness spatial features within the dataset. Following these, dense layers are employed to facilitate the classification process. Optimization is achieved through the use of the 'adam' optimizer, while 'binary cross-entropy' serves as the loss function, closely selected for its efficacy in binary classification scenarios.
+We implemented a CNN model that consists of a series of convolutional and max-pooling layers, designed to identify and leverage spatial features in the dataset. Following these, dense layers were added to carry out the classification process.The model uses the Adam optimizer for refining its parameters, with binary cross-entropy as the loss function, chosen for its effectiveness in binary classification tasks.
 
-The model is trained over 10 epochs with real-time data augmentation and performance monitored via validation accuracy and loss. This iterative process ensures the model is generalizing well and not overfitting.
+The training process spanned 20 epochs, during which we closely monitored validation accuracy and loss to ensure the model was generalizing effectively and not overfitting.
 
 ## Results and Discussion
 
-| Epoch | Loss   | Accuracy | Val Loss | Val Accuracy |
-|-------|--------|----------|----------|--------------|
-| 1     | 0.5535 | 0.8001   | 0.5485   | 0.7996       |
-| 2     | 0.4837 | 0.8151   | 0.5074   | 0.7996       |
-| 3     | 0.4761 | 0.8151   | 0.4953   | 0.7996       |
-| 4     | 0.4683 | 0.8151   | 0.5018   | 0.7996       |
-| 5     | 0.465  | 0.8151   | 0.5236   | 0.7996       |
-| 6     | 0.4652 | 0.814    | 0.5473   | 0.7996       |
-| 7     | 0.4592 | 0.8146   | 0.5057   | 0.7996       |
-| 8     | 0.4544 | 0.8151   | 0.5106   | 0.7996       |
-| 9     | 0.4597 | 0.8166   | 0.5519   | 0.7996       |
-| 10    | 0.4443 | 0.8146   | 0.5495   | 0.7996       |
+The tables below summarize the model’s performance across various metrics during training:
 
-In our evaluation of the CNN model's performance, we may reach several conclusions. Initially, we saw a constant decrease in training loss, implying that the model was efficiently learning from the training data. This indicates that the learning process using the training data is efficient. However, the variety in validation loss and the consistency of training accuracy vs variation in validation accuracy indicate possible concerns with the model's capacity to generalize to new data. At the final epoch, the training loss was recorded at 0.4443, with a training accuracy of 81.46%, while the validation loss stood at 0.5495, with a validation accuracy of 79.96%. The results show that the model can predict on both training and validation data, but the difference in training and validation accuracy increases the risk of overfitting.
+| Epoch | Training Accuracy | Training Loss | Validation Accuracy | Validation Loss |
+|-------|-------------------|---------------|---------------------|-----------------|
+| 1     | 0.4995            | 2.7291        | 0.4560              | 0.6933          |
+| 2     | 0.4734            | 0.6931        | 0.5385              | 0.6916          |
+| 3     | 0.5134            | 0.6957        | 0.5220              | 0.6927          |
+| 4     | 0.5501            | 0.6890        | 0.4725              | 0.6937          |
+| 5     | 0.6356            | 0.6768        | 0.4780              | 0.6955          |
+| 6     | 0.6895            | 0.6392        | 0.5000              | 0.6964          |
+| 7     | 0.7080            | 0.5789        | 0.4725              | 0.7224          |
+| 8     | 0.8132            | 0.4657        | 0.5110              | 0.9043          |
+| 9     | 0.8396            | 0.3658        | 0.5165              | 1.1784          |
+| 10    | 0.8973            | 0.2324        | 0.5165              | 1.2383          |
+| 11    | 0.9369            | 0.1752        | 0.4890              | 1.3145          |
+| 12    | 0.9789            | 0.0758        | 0.4780              | 1.5494          |
+| 13    | 0.9906            | 0.0426        | 0.4890              | 2.0175          |
+| 14    | 0.9903            | 0.0285        | 0.4725              | 1.9173          |
+| 15    | 0.9901            | 0.0221        | 0.5330              | 2.0516          |
+| 16    | 0.9961            | 0.0240        | 0.5055              | 1.9825          |
+| 17    | 0.9944            | 0.0155        | 0.5220              | 2.3383          |
+| 18    | 0.9878            | 0.0267        | 0.5165              | 2.4428          |
+| 19    | 0.9899            | 0.0269        | 0.5330              | 2.4282          |
+| 20    | 0.9996            | 0.0157        | 0.5330              | 2.5089          |
 
-To prevent overfitting and improve our CNN model's generalization, we may use tactics such as data augmentation, regularization, and model complexity modifications. These techniques try to improve performance in a variety of circumstances and our findings emphasize the need of improving the model's learning process and structure.
+| Metric              | Value                 |
+|---------------------|-----------------------|
+| Validation Accuracy | 0.5329670310020447    |
+| F1 Score            | 0.5893719806763285    |
+| ROC AUC Score       | 0.5257531584062196    |
+
+Notably, we see a constant decrease in the training loss, implying that the model was successfully learning from the dataset. However, the discrepancy between training accuracy and validation accuracy, as well as fluctuating validation loss, indicate possible concerns with the model’s ability to generalize to new data. By the last epoch, the training loss was 0.0157 with a training accuracy of 99.96%, while the validation loss was 2.5089 with a validation accuracy of 53.3%. These results indicate that the model can predict on both training and validation data, but it is heavily overfitted. Despite attempts to mitigate this through the addition of a dropout layer for regularization, further strategies for reducing overfitting are being considered for future improvements, such as artificially adding images to the training set via rotating, flipping, and cropping existing images.
+
+Visual representations of our model’s performance are shown in the graphs below, illustrating the trends in accuracy and loss over the epochs:
+
+![Training and Validation Accuracy](/deepfake-detector-website/images/accuracy.png)
+![Training and Validation Loss](/deepfake-detector-website/images/loss.png)
+
+The confusion matrix provides additional insights:
+
+![Confusion Matrix](/deepfake-detector-website/images/confusion_matrix.png)
+
+From this, we can infer the model’s accuracy is approximately 53.2%, indicating that it correctly predicts the class of the video (real or fake) about 53.2% of the time. The precision for fake videos is approximately 42.9%, meaning less than half of the model’s predicted ‘fake’ videos are actually fake, and the recall for fake videos is approximately 49.3%, meaning the model correctly identifies nearly half of all the actual fake videos. 
+
+Moreover, the F1 Score is 0.589, which suggests that the model has a reasonable balance between correctly identifying fake videos and avoiding misclassifications. The ROC curve illustrates the model’s performance:
+
+![ROC Curve](/deepfake-detector-website/images/roc.png)
+
+The area under the ROC curve (AUC-ROC) is 0.526. For reference, a score of 0.5 indicates random guessing, while a score closer to 1 indicates better performance. Here, the score suggests that the model's ability to discriminate between fake and real videos is slightly better than random guessing, leaving much room for improvement.
+
+In conclusion, our findings underscore the importance of refining both the learning process and the structure of our model to better accommodate the complexities involved in detecting deepfake videos. Our next steps will include exploring more advanced data augmentation techniques, introducing regularization mechanisms, and optimizing model complexity to achieve a more balanced and generalizable performance (preventing overfitting).
 
 
 ## References
@@ -70,12 +104,12 @@ To prevent overfitting and improve our CNN model's generalization, we may use ta
 
 <iframe width="100%" height="500" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQOCWpLpJ2i9XuK1u0PowcwO7Gt4840KjEH3OJ84k_omLtSYR00XxbXqIYXU-SMbA/pubhtml?widget=true&amp;headers=false"></iframe>
 
-## Contributions TODO: Update
+## Contributions
 
-| Team Member                      | Responsibilities                                     |
-|----------------------------------|------------------------------------------------------|
-| Vibha Thirunellayi Gopalakrishnan| Midterm Written Portion, Accuracy Evaluation    |
-| Junseob Lee                      | Collaborative work on CNN, Lead Midterm Checkpoint Draft |
-| Michelle Namgoong                | CNN Model Development, Initial Model Assessment |
-| Yeonsoo Chang                    | Analyzing Loss and Accuracy, Visualization, Midterm Checkpoint            |
+| Team Member                      | Responsibilities                                         |
+|----------------------------------|----------------------------------------------------------|
+| Vibha Thirunellayi Gopalakrishnan| Evaluation Metrics, Visualizations                       |
+| Junseob Lee                      | Writing Midterm Report, Methods                          |
+| Michelle Namgoong                | CNN Model Development, Website Deployment                |
+| Yeonsoo Chang                    | Writing Midterm Report, Results, Discussion              |
 | Vincent Horvath                  | Data Acquisition, Frame Extraction, Dataset Balancing, CNN Training, Website Deployment |
