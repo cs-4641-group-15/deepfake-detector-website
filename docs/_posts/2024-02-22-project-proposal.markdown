@@ -11,9 +11,9 @@ categories: update
 
 The advent of deep learning has led to the emergence of 'deepfakes,' synthetic media where a person's likeness can be swapped or manipulated with high realism, posing significant risks to privacy, security, and information authenticity. As deepfakes become more sophisticated, detecting them becomes critical.
 
-In the literature, Nguyen et al. [1] survey deep learning techniques for generating and detecting deepfakes, delineating the evolution of detection methodologies and setting benchmarks for detection accuracy. Complementary to this, Yoon et al. [2] demonstrate the effectiveness of convolutional neural networks (CNNs) in identifying frame-rate inconsistencies—a technique that could be vital for deepfake detection.
+In the literature, Nguyen et al. [1] survey deep learning techniques for generating and detecting deepfakes, delineating the evolution of detection methodologies and setting benchmarks for detection accuracy. Further, Yoon et al. [2] demonstrate the effectiveness of convolutional neural networks (CNNs) in identifying frame-rate inconsistencies -- a technique that could be vital for deepfake detection.
 
-The societal implications of deepfakes, particularly legal and ethical considerations, are discussed by Hailtik and Afifah [3], emphasizing the need for a legal framework to address AI-generated deepfake crimes. Our project builds upon these insights, aiming to develop a robust detection system capable of classifying deepfaked content with high accuracy. Through this, we aspire to contribute to the safer use of artificial intelligence (AI) in digital media creation.
+The societal implications of deepfakes, particularly legal and ethical considerations, are discussed by Hailtik and Afifah [3], emphasizing the need for a legal framework to address AI-generated deepfake crimes. Our project builds upon these insights, aiming to develop a robust detection system capable of classifying deepfaked content with high accuracy. By doing so, we hope to contribute to the safer use of artificial intelligence (AI) in digital media creation.
 
 ## Dataset Description
 

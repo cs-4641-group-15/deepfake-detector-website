@@ -11,9 +11,9 @@ categories: update
 
 The advent of deep learning has led to the emergence of 'deepfakes,' synthetic media where a person's likeness can be swapped or manipulated with high realism, posing significant risks to privacy, security, and information authenticity. As deepfakes become more sophisticated, detecting them becomes critical.
 
-In the literature, Nguyen et al. [1] survey deep learning techniques for generating and detecting deepfakes, delineating the evolution of detection methodologies and setting benchmarks for detection accuracy. Complementary to this, Yoon et al. [2] demonstrate the effectiveness of convolutional neural networks (CNNs) in identifying frame-rate inconsistencies—a technique that could be vital for deepfake detection.
+In the literature, Nguyen et al. [1] survey deep learning techniques for generating and detecting deepfakes, delineating the evolution of detection methodologies and setting benchmarks for detection accuracy. Further, Yoon et al. [2] demonstrate the effectiveness of convolutional neural networks (CNNs) in identifying frame-rate inconsistencies -- a technique that could be vital for deepfake detection.
 
-The societal implications of deepfakes, particularly legal and ethical considerations, are discussed by Hailtik and Afifah [3], emphasizing the need for a legal framework to address AI-generated deepfake crimes. Our project builds upon these insights, aiming to develop a robust detection system capable of classifying deepfaked content with high accuracy. Through this, we aspire to contribute to the safer use of artificial intelligence (AI) in digital media creation.
+The societal implications of deepfakes, particularly legal and ethical considerations, are discussed by Hailtik and Afifah [3], emphasizing the need for a legal framework to address AI-generated deepfake crimes. Our project builds upon these insights, aiming to develop a robust detection system capable of classifying deepfaked content with high accuracy. By doing so, we hope to contribute to the safer use of artificial intelligence (AI) in digital media creation.
 
 ## Dataset Description
 
@@ -70,7 +70,7 @@ The tables below summarize the model’s performance across various metrics duri
 | F1 Score            | 0.5893719806763285    |
 | AUC-ROC Score       | 0.5257531584062196    |
 
-Notably, we see a constant decrease in the training loss, implying that the model was successfully learning from the dataset. However, the discrepancy between training accuracy and validation accuracy, as well as fluctuating validation loss, indicate possible concerns with the model’s ability to generalize to new data. By the last epoch, the training loss was 0.0157 with a training accuracy of 99.96%, while the validation loss was 2.5089 with a validation accuracy of 53.3%. These results indicate that the model can predict on both training and validation data, but it is heavily overfitted. Despite attempts to mitigate this through the addition of a dropout layer for regularization, further strategies for reducing overfitting are being considered for future improvements, such as artificially adding images to the training set via rotating, flipping, and cropping existing images.
+Notably, we see a constant decrease in the training loss, implying that the model was successfully learning from the dataset. However, the discrepancy between training accuracy and validation accuracy, as well as fluctuating validation loss, indicate possible concerns with the model’s ability to generalize to new data. By the last epoch, the training loss was 0.0157 with a training accuracy of 99.96%, while the validation loss was 2.5089 with a validation accuracy of 53.3%. These results indicate that the model can predict on both training and validation data, but it is heavily overfitted. Despite attempts to mitigate overfitting through the addition of a dropout layer for regularization, further strategies for reducing overfitting are being considered for future improvements, such as artificially adding images to the training set via rotating, flipping, and cropping existing images.
 
 Visual representations of our model’s performance are shown in the graphs below, illustrating the trends in accuracy and loss over the epochs:
 
@@ -81,7 +81,7 @@ The confusion matrix provides additional insights:
 
 ![Confusion Matrix](/deepfake-detector-website/images/confusion_matrix.png)
 
-From this, we can infer the model’s accuracy is approximately 53.2%, indicating that it correctly predicts the class of the video (real or fake) about 53.2% of the time. The precision for fake videos is approximately 42.9%, meaning less than half of the model’s predicted ‘fake’ videos are actually fake, and the recall for fake videos is approximately 49.3%, meaning the model correctly identifies nearly half of all the actual fake videos. 
+We can infer the model’s accuracy is approximately 53.3%, indicating that it correctly predicts the class of the video (real or fake) about 53.3% of the time. The precision for fake videos is approximately 42.9%, meaning less than half of the model’s predicted ‘fake’ videos are actually fake, and the recall for fake videos is approximately 49.3%, meaning the model correctly identifies nearly half of all the actual fake videos. 
 
 Moreover, the F1 Score is 0.589, which suggests that the model has a reasonable balance between correctly identifying fake videos and avoiding misclassifications.
 
